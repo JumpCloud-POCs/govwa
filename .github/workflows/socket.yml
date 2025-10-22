@@ -1,6 +1,8 @@
 name: Socket Scan
+
 on:
-  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
   
 jobs:
   socket-scan:
