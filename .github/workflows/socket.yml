@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run Socket Basics
-        uses: SocketDev/socket-basics@0913ff7b349f68eebc4a6e41186f56b412a0b897
+        uses: SocketDev/socket-basics@563aaa1d6fcf1a333121d951815747321a6629d4
         env:
           GITHUB_PR_NUMBER: ${{ github.event.pull_request.number || github.event.issue.number }}
         with:
