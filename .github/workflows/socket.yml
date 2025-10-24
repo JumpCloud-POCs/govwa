@@ -1,7 +1,9 @@
 name: Socket Scan
+
 on:
-  push:
-  
+  pull_request:
+    types: [opened, synchronize, reopened]
+
 jobs:
   socket-scan:
     permissions:
@@ -11,11 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Run Socket Basics
-        uses: SocketDev/socket-basics@1.0.10
+        uses: SocketDev/socket-basics@563aaa1d6fcf1a333121d951815747321a6629d4
         env:
           GITHUB_PR_NUMBER: ${{ github.event.pull_request.number || github.event.issue.number }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           socket_security_api_key: ${{ secrets.SOCKET_SECURITY_API_KEY }}
+          use_custom_sast_rules: true
