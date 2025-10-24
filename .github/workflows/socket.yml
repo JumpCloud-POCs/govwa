@@ -3,7 +3,7 @@ name: Socket Scan
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-  
+
 jobs:
   socket-scan:
     permissions:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Run Socket Basics
         uses: SocketDev/socket-basics@8cc913b187c6aa4ce2ee508f26951bf8c28fd074
         env:
@@ -22,4 +22,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           socket_security_api_key: ${{ secrets.SOCKET_SECURITY_API_KEY }}
           use_custom_sast_rules: true
-          custom_sast_rule_path: opengrep-rules
+          custom_sast_rule_path: opengrep_rules
